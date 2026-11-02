@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "claude_bin": "/srv/agent/.local/bin/claude",
+  "claude_config_dir": "/srv/agent/.local/state/agent-provider/claude-config",
+  "oauth_token_file": "/srv/agent/.local/state/agent-provider/claude-oauth-token",
+  "settings_file": "/etc/agent-provider/claude-settings.json",
+  "setting_sources": "project",
+  "env": {
+    "BASH_DEFAULT_TIMEOUT_MS": 1800000,
+    "BASH_MAX_TIMEOUT_MS": 5400000
+  },
+  "profiles": {
+    "read": {
+      "tools": ["Read", "Glob", "Grep"]
+    },
+    "agent": {
+      "tools": ["Bash", "Read", "Edit", "Write", "Glob", "Grep", "Skill"]
+    },
+    "agent-web": {
+      "tools": ["Bash", "Read", "Edit", "Write", "Glob", "Grep", "Skill", "WebFetch", "WebSearch"]
+    }
+  },
+  "jobs": {
+    "backlog": {
+      "enabled": true,
+      "models": ["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5-5"],
+      "default_model": "claude-opus-5-5",
+      "sandboxes": {"danger-full-access": "agent", "workspace-write": "agent"},
+      "network": true
+    },
+    "review": {
+      "enabled": true,
+      "models": ["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5-5"],
+      "default_model": "claude-opus-5-5",
+      "sandboxes": {"read-only": "read"},
+      "network": false
+    }
+  }
+}

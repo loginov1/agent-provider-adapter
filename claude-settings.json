@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "includeCoAuthoredBy": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "autoMemoryEnabled": false,
+  "cleanupPeriodDays": 30,
+  "permissions": {
+    "disableBypassPermissionsMode": "disable",
+    "deny": [
+      "Bash(npm run deploy:*)",
+      "Bash(npx wrangler deploy:*)",
+      "Bash(wrangler deploy:*)",
+      "Read(//srv/agent/.local/state/agent-provider/claude-oauth-token)",
+      "Read(//srv/agent/.claude/.credentials.json)",
+      "Read(//srv/agent/.codex/auth.json)",
+      "Read(//srv/agent/.codex/.credentials.json)",
+      "Read(//srv/agent/.ssh/**)",
+      "Read(//srv/agent/.config/gh/hosts.yml)",
+      "Read(//etc/agent-jobs-*.env)"
+    ]
+  }
+}

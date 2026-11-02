@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["instructions_fact", "hook_blocked", "dirty_lines", "tools_seen"],
+  "properties": {
+    "instructions_fact": {"type": "string"},
+    "hook_blocked": {"type": "boolean"},
+    "dirty_lines": {"type": "integer", "minimum": -1},
+    "tools_seen": {"type": "array", "items": {"type": "string"}}
+  }
+}
